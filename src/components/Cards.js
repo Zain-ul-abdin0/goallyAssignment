@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Dimensions, Switch } from 'react-native'
+import { Text, View, StyleSheet, Dimensions } from 'react-native'
 import ToggleSwitch from 'toggle-switch-react-native'
 import { Icon } from '@rneui/themed';
 import { Image } from '@rneui/base';

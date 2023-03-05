@@ -34,8 +34,6 @@ export default function List(props) {
     useEffect(() => {
         fetchData();
     }, []);
-
-  
     function fetchData() {
         setIsLoading(true);
         axios.get(`https://devapi.getgoally.com/v1/api/reminders/all`, { headers: { "Authorization": AuthStr } })

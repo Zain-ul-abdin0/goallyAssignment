@@ -1,9 +1,9 @@
 import { Icon } from '@rneui/themed/dist/Icon'
 import React, { Component,useState } from 'react'
 import { Image, View, TextInput, StyleSheet,TouchableWithoutFeedback } from 'react-native'
-import { Alert } from 'react-native/Libraries/Alert/Alert';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-function SearchBar({getSearchText,getAsc}) {
+function  SearchBar({getSearchText,getAsc}) {
   const [isAsc, setIsAsc] = useState(true);
   function setText(queryText){
     getSearchText(queryText);
@@ -13,11 +13,12 @@ function SearchBar({getSearchText,getAsc}) {
     getAsc(isAsc);
   }
   return (
-    <View style={styles.container}>
-      <View style={styles.input}>
+      <View style={styles.container}>
+       <View style={styles.input}>
         <TextInput
+        placeholder='Serach'
         onChangeText={queryText => setText(queryText)}
-        >Serach</TextInput>
+        ></TextInput>
         <View style={styles.icon}>
           <Icon name="search" size={32} color="white" />
         </View>
@@ -25,8 +26,8 @@ function SearchBar({getSearchText,getAsc}) {
       <TouchableWithoutFeedback onPress={sort}>
       <Image source={require('../../assets/icons/sort.jpg')} style={styles.iconStyle} resizeMode='contain' />
       </TouchableWithoutFeedback>
-    </View>
-  )
+     </View>
+    )
 }
 
 
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   container: {height:'10%',width:'100%', flexDirection: 'row', justifyContent: 'center',alignItems:'center' },
   input: {
     width: '80%',
-    height: '65%',
+    height: '55%',
     borderWidth: 1,
     borderColor: 'black',
     flexDirection: 'row',

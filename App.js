@@ -1,9 +1,11 @@
 import React, { Component, useState } from 'react'
-import { Text, View, StyleSheet, Dimensions } from 'react-native'
+import { View, StyleSheet, Dimensions, KeyboardAvoidingView, ScrollView } from 'react-native'
 import Cards from './src/components/Cards';
 import List from './src/components/List';
 import Header from './src/components/Header';
 import SearchBar from './src/components/SearchBar';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
 const screenWidth = Math.round(Dimensions.get('window').width);
 
 function App() {
@@ -17,14 +19,15 @@ function App() {
     setAsc(value)
   }
   return (
+
     <View style={styles.start}>
       <Header />
-      <View style={styles.container}>
-        <Cards cardName="Morning Routine" />
-        <Cards cardName="Night Routine" />
-      </View>
-      <SearchBar getSearchText={getSearchText} getAsc={getAsc} />
-      <List searchText={searchText} isAsc={isAsc} />
+         <View style={styles.container}>
+          <Cards cardName="Morning Routine" />
+          <Cards cardName="Night Routine" />
+        </View>
+        <SearchBar getSearchText={getSearchText} getAsc={getAsc} />
+        <List searchText={searchText} isAsc={isAsc} />
     </View>
   )
 }
