@@ -1,11 +1,16 @@
 import { Icon } from '@rneui/themed/dist/Icon'
-import React, { Component } from 'react'
-import { Image, View, TextInput, StyleSheet } from 'react-native'
+import React, { Component,useState } from 'react'
+import { Image, View, TextInput, StyleSheet,TouchableWithoutFeedback } from 'react-native'
+import { Alert } from 'react-native/Libraries/Alert/Alert';
 
-function SearchBar({getSearchText}) {
-
+function SearchBar({getSearchText,getAsc}) {
+  const [isAsc, setIsAsc] = useState(true);
   function setText(queryText){
     getSearchText(queryText);
+  }
+  function sort(){
+    setIsAsc(!isAsc);
+    getAsc(isAsc);
   }
   return (
     <View style={styles.container}>
@@ -17,7 +22,9 @@ function SearchBar({getSearchText}) {
           <Icon name="search" size={32} color="white" />
         </View>
       </View>
+      <TouchableWithoutFeedback onPress={sort}>
       <Image source={require('../../assets/icons/sort.jpg')} style={styles.iconStyle} resizeMode='contain' />
+      </TouchableWithoutFeedback>
     </View>
   )
 }
